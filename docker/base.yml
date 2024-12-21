@@ -1,0 +1,40 @@
+services:
+  app:
+    tty: true
+    stdin_open: true
+    environment:
+      APP_COMMAND: $APP_COMMAND
+      APP_ENTRY: $APP_ENTRY
+    image: ${DOCKER_REPO}/${APP_IMAGE_NAME}
+    entrypoint: ${APP_ENTRY}
+    command: ${APP_COMMAND}
+    volumes:
+      - type: bind
+        source: "../app/"
+        target: "/home/node/site"
+    networks:
+      - shared
+    ports:
+      - "${PORT}:${PORT}"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:${PORT}"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+  test_client:
+    tty: true
+    stdin_open: true
+    image: ${DOCKER_REPO}/${TEST_CLIENT_IMAGE_NAME}
+    entrypoint: ["npm"]
+    depends_on:
+      - app
+    volumes:
+      - type: bind
+        source: "../test/"
+        target: "/home/node/site"
+    networks:
+      - shared
+
+networks:
+  shared:
+    driver: bridge

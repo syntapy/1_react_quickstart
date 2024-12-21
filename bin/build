@@ -1,0 +1,18 @@
+#! /bin/sh
+
+if [[ ! -f ./docker/.env  ]];
+then
+    echo ".env file doesn't exist. Please add it and try again."
+    exit 1
+fi
+
+source ./docker/.env
+
+echo "Building Test Client"
+docker build -f docker/Dockerfile.test -t $DOCKER_REPO/$APP_IMAGE_NAME ./
+
+echo
+echo
+echo
+echo "Building App Server"
+docker build -f docker/Dockerfile.app -t $DOCKER_REPO/$TEST_CLIENT_IMAGE_NAME ./
