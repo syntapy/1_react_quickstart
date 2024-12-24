@@ -1,0 +1,71 @@
+{
+    "Fruits": [
+        {"Apples": 3},
+        {"Oranges": 3},
+        {"Tangerines": 2},
+        {"Dragonfruit": 6},
+        {"Pineapple": 5},
+        {"Watermelon": 3},
+        {"Grapefruit": 5},
+        {"Strawberres": 5},
+        {"Blueberries": 6},
+        {"Raspberries": 5},
+        {"Bananas": 4},
+        {"Pears": 4},
+        {"Kiwis": 5}
+    ],
+    "Vegetables": [
+        {"Romaine Lettuce": 3},
+        {"Broccoli": 4},
+        {"Onion": 2},
+        {"Garlic": 3},
+        {"Cucumbers": 2},
+        {"Red Bell Peppers", 4},
+        {"Orange Bell Peppers", 4},
+        {"Yellow Bell Peppers", 4},
+        {"Green Bell Peppers", 4},
+        {"Tomatoes", 3},
+        {"Radishes", 2},
+        {"Carrots", 2},
+        {"Parsley", 4}
+    ],
+    "Meats": [
+        {"Beef", 6},
+        {"Chicken", 4},
+        {"Turkey", 3},
+        {"Salmon", 7},
+        {"Pollock", 6},
+        {"Pork", 4}
+    ],
+    "Dairy": [
+        {"Milk", 4},
+        {"Eggs", 3},
+        {"Yogurt", 4},
+        {"Cheese", 3},
+        {"Butter", 2}
+    ],
+    "Beverages": [
+        {"Coconut Milk", 4},
+        {"Almond Milk", 4},
+        {"Watermellon Juice", 5},
+        {"Blueberry Juice", 4}
+    ],
+    "Grains": [
+        {"Bread", 4},
+        {"Cereal", 4},
+        {"Oats", 2},
+        {"Sourdough", 3}
+    ],
+    "Legumes": [
+        {"Kidney Beans", 2},
+        {"Garbanzo Beans", 2},
+        {"Lentils", 2},
+        {"Pinto Beans", 2}
+    ],
+    "Pets": [
+        {"Rat Food", 8}
+    ],
+    "Other": [
+        {"Crocodile Tail", 25}
+    ]
+}
