@@ -1,71 +1,55 @@
-{
-    "Fruits": [
-        {"Apples": 3},
-        {"Oranges": 3},
-        {"Tangerines": 2},
-        {"Dragonfruit": 6},
-        {"Pineapple": 5},
-        {"Watermelon": 3},
-        {"Grapefruit": 5},
-        {"Strawberres": 5},
-        {"Blueberries": 6},
-        {"Raspberries": 5},
-        {"Bananas": 4},
-        {"Pears": 4},
-        {"Kiwis": 5}
-    ],
-    "Vegetables": [
-        {"Romaine Lettuce": 3},
-        {"Broccoli": 4},
-        {"Onion": 2},
-        {"Garlic": 3},
-        {"Cucumbers": 2},
-        {"Red Bell Peppers", 4},
-        {"Orange Bell Peppers", 4},
-        {"Yellow Bell Peppers", 4},
-        {"Green Bell Peppers", 4},
-        {"Tomatoes", 3},
-        {"Radishes", 2},
-        {"Carrots", 2},
-        {"Parsley", 4}
-    ],
-    "Meats": [
-        {"Beef", 6},
-        {"Chicken", 4},
-        {"Turkey", 3},
-        {"Salmon", 7},
-        {"Pollock", 6},
-        {"Pork", 4}
-    ],
-    "Dairy": [
-        {"Milk", 4},
-        {"Eggs", 3},
-        {"Yogurt", 4},
-        {"Cheese", 3},
-        {"Butter", 2}
-    ],
-    "Beverages": [
-        {"Coconut Milk", 4},
-        {"Almond Milk", 4},
-        {"Watermellon Juice", 5},
-        {"Blueberry Juice", 4}
-    ],
-    "Grains": [
-        {"Bread", 4},
-        {"Cereal", 4},
-        {"Oats", 2},
-        {"Sourdough", 3}
-    ],
-    "Legumes": [
-        {"Kidney Beans", 2},
-        {"Garbanzo Beans", 2},
-        {"Lentils", 2},
-        {"Pinto Beans", 2}
-    ],
-    "Pets": [
-        {"Rat Food", 8}
-    ],
-    "Other": [
-        {"Crocodile Tail", 25}
+{ 
+    "items":[
+       {"category": "Fruits", "name": "Apples", "price": 3, "stocked": true },
+       {"category": "Fruits", "name": "Oranges", "price": 3, "stocked": true },
+       {"category": "Fruits", "name": "Tangerines", "price": 2, "stocked": true },
+       {"category": "Fruits", "name": "Dragnfruit", "price": 6, "stocked": true },
+       {"category": "Fruits", "name": "Pineapple", "price": 5, "stocked": true },
+       {"category": "Fruits", "name": "Watermelon", "price": 3, "stocked": true },
+       {"category": "Fruits", "name": "Grapefruit", "price": 5, "stocked": true },
+       {"category": "Fruits", "name": "Strawberries", "price": 5, "stocked": true },
+       {"category": "Fruits", "name": "Blueberries", "price": 6, "stocked": true },
+       {"category": "Fruits", "name": "Raspberries", "price": 5, "stocked": true },
+       {"category": "Fruits", "name": "Bananas", "price": 4, "stocked": true },
+       {"category": "Fruits", "name": "Pears", "price": 4, "stocked": true },
+       {"category": "Fruits", "name": "Kiwis", "price": 5, "stocked": true },
+       {"category": "Vegetables", "name": "Romaine", "price": 3, "stocked": true },
+       {"category": "Vegetables", "name": "Broccoli", "price": 4, "stocked": true },
+       {"category": "Vegetables", "name": "Onion", "price": 2, "stocked": true },
+       {"category": "Vegetables", "name": "Garlic", "price": 3, "stocked": true },
+       {"category": "Vegetables", "name": "Cucumbers", "price": 2, "stocked": true },
+       {"category": "Vegetables", "name": "Red Bell Peppers", "price": 4, "stocked": true },
+       {"category": "Vegetables", "name": "Orange Bell Peppers", "price": 4, "stocked": true },
+       {"category": "Vegetables", "name": "Yellow Bell Peppers", "price": 4, "stocked": true },
+       {"category": "Vegetables", "name": "Green Bell Peppers", "price": 4, "stocked": true },
+       {"category": "Vegetables", "name": "Tomatoes", "price": 3, "stocked": true },
+       {"category": "Vegetables", "name": "Radishes", "price": 2, "stocked": true },
+       {"category": "Vegetables", "name": "Carrots", "price": 2, "stocked": true },
+       {"category": "Vegetables", "name": "Parsley", "price": 4, "stocked": true },
+       {"category": "Meats", "name": "Beaf", "price": 6, "stocked": true },
+       {"category": "Meats", "name": "Chicken", "price": 4, "stocked": true },
+       {"category": "Meats", "name": "Turkey", "price": 3, "stocked": true },
+       {"category": "Meats", "name": "Salmon", "price": 7, "stocked": true },
+       {"category": "Meats", "name": "Pollock", "price": 6, "stocked": true },
+       {"category": "Meats", "name": "Pork", "price": 4, "stocked": true },
+       {"category": "Dairy", "name": "Milk", "price": 4, "stocked": true },
+       {"category": "Dairy", "name": "Eggs", "price": 3, "stocked": true },
+       {"category": "Dairy", "name": "Yogurt", "price": 4, "stocked": true },
+       {"category": "Dairy", "name": "Cheese", "price": 3, "stocked": true },
+       {"category": "Dairy", "name": "Butter", "price": 2, "stocked": true },
+       {"category": "Beverages", "name": "Coconut Milk", "price": 4, "stocked": true },
+       {"category": "Beverages", "name": "Almond Milk", "price": 4, "stocked": true },
+       {"category": "Beverages", "name": "Watermelon Juice", "price": 5, "stocked": true },
+       {"category": "Beverages", "name": "Blueberry Juice", "price": 4, "stocked": true },
+       {"category": "Grains", "name": "Bread", "price": 4, "stocked": true },
+       {"category": "Grains", "name": "Cereal", "price": 4, "stocked": true },
+       {"category": "Grains", "name": "Oats", "price": 2, "stocked": true },
+       {"category": "Grains", "name": "Souredough", "price": 3, "stocked": true },
+       {"category": "Legumes", "name": "Kidney Beans", "price": 2, "stocked": true },
+       {"category": "Legumes", "name": "Garbanzo Beans", "price": 2, "stocked": true },
+       {"category": "Legumes", "name": "Lentils", "price": 2, "stocked": true },
+       {"category": "Legumes", "name": "Pinto Beans", "price": 2, "stocked": true },
+       {"category": "For Pets", "name": "Rat Food", "price": 8, "stocked": true },
+       {"category": "Other", "name": "Crocodile Tail", "price": 25, "stocked": true }
     ]
 }
