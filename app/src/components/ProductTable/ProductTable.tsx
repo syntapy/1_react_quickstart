@@ -1,6 +1,8 @@
 import ProductCategoryRow from "../ProductCategoryRow/index"
 import ProductRow from "../ProductRow/index"
 
+import data from "../../assets/data.json"
+
 export default function ProductTable() {
     return (
         <>
