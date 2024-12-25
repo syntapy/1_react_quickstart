@@ -5,9 +5,11 @@ import data from "../../assets/data.json"
 
 export default function ProductTable() {
     return (
-        <>
-            <ProductCategoryRow category="Vegetables" />
-            <ProductRow item="Lettuce" price={6} stocked={true} />
-        </>
+        <div>
+            <ul>
+                <ProductCategoryRow category="Vegetables" />
+                <ProductRow item="Lettuce" price={6} stocked={true} />
+            </ul>
+        </div>
     )
 }
