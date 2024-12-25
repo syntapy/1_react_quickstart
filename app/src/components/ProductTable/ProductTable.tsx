@@ -9,6 +9,8 @@ export default function ProductTable() {
             <ul>
                 <ProductCategoryRow category="Vegetables" />
                 <ProductRow item="Lettuce" price={6} stocked={true} />
+                <ProductRow item="Tomato" price={4} stocked={true} />
+                <ProductRow item="Carros" price={3} stocked={true} />
             </ul>
         </div>
     )
