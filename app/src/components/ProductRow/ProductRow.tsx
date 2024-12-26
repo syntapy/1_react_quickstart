@@ -1,14 +1,14 @@
 interface Props {
-    item: string
+    name: string
     price: number
     stocked: boolean
 }
 
 export default function ProductRow(props: Props) {
     return (
-        <div>
-            <span>{props.item}</span>
-            <span>${props.price}</span>
-        </div>
+        <li className="flex flex-row ">
+            <span className="grow">{props.name}</span>
+            <span className="grow">${props.price}</span>
+        </li>
     )
 }
