@@ -6,7 +6,7 @@ import data from "../../assets/data.json"
 export default function ProductTable() {
     return (
         <div>
-            <ul>
+            <ul className="flex flex-col">
                 <ProductCategoryRow category="Vegetables" />
                 <ProductRow item="Lettuce" price={6} stocked={true} />
                 <ProductRow item="Tomato" price={4} stocked={true} />

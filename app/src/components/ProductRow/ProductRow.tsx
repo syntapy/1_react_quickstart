@@ -6,9 +6,9 @@ interface Props {
 
 export default function ProductRow(props: Props) {
     return (
-        <li>
-            <span>{props.item}</span>
-            <span>${props.price}</span>
+        <li className="flex flex-row ">
+            <span className="grow">{props.item}</span>
+            <span className="grow">${props.price}</span>
         </li>
     )
 }
