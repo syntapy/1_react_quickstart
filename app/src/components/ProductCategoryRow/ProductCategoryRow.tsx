@@ -1,9 +1,9 @@
 interface Prop {
-    category: string
+    name: string
 }
 
 export default function ProductCategoryRow(props: Props) {
     return (
-        <li>{props.category}</li>
+        <li>{props.name}</li>
     )
 }

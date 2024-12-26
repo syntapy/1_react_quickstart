@@ -1,16 +1,32 @@
 import ProductCategoryRow from "../ProductCategoryRow/index"
 import ProductRow from "../ProductRow/index"
 
-import data from "../../assets/data.json"
+import dataJSON from "../../data/data.json"
 
 export default function ProductTable() {
+    console.log(dataJSON.items.map(item => item.name))
+    //console.log(dataJSON.items.map(item => item.name))
+    const categoriesUsed={};
     return (
         <div>
-            <ul className="flex flex-col">
-                <ProductCategoryRow category="Vegetables" />
-                <ProductRow item="Lettuce" price={6} stocked={true} />
-                <ProductRow item="Tomato" price={4} stocked={true} />
-                <ProductRow item="Carros" price={3} stocked={true} />
+            <ul className="flex flex-col">{
+                dataJSON.items.map(
+                    item => {
+                        if (categoriesUsed.hasOwnProperty(item.category) === false) {
+                            categoriesUsed[item.category]=null;
+                            return (
+                                <>
+                                    <ProductCategoryRow name={item.category} />
+                                    <ProductRow name={item.name} price={item.price} stocked={item.stocked} />
+                                </>
+                            )
+                        } else 
+                            return (
+                                <ProductRow name={item.name} price={item.price} stocked={item.stocked} />
+                            )
+                    }
+                )
+            }
             </ul>
         </div>
     )
