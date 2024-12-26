@@ -4,8 +4,6 @@ import ProductRow from "../ProductRow/index"
 import dataJSON from "../../data/data.json"
 
 export default function ProductTable() {
-    console.log(dataJSON.items.map(item => item.name))
-    //console.log(dataJSON.items.map(item => item.name))
     const categoriesUsed={};
     return (
         <div>
