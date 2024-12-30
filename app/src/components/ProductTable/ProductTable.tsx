@@ -7,6 +7,9 @@ export default function ProductTable() {
     const categoriesUsed={};
     return (
         <div>
+            <div className="flex flex-row">
+                <span className="grow text-left">Name</span><span className="grow text-right">Price</span>
+            </div>
             <ul className="flex flex-col">{
                 dataJSON.items.map(
                     item => {
