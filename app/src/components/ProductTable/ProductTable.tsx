@@ -10,7 +10,7 @@ export default function ProductTable() {
             <div className="flex flex-row">
                 <span className="grow text-left">Name</span><span className="grow text-right">Price</span>
             </div>
-            <ul className="flex flex-col">{
+            <table className="flex flex-col">{
                 dataJSON.items.map(
                     item => {
                         if (categoriesUsed.hasOwnProperty(item.category) === false) {
@@ -28,7 +28,7 @@ export default function ProductTable() {
                     }
                 )
             }
-            </ul>
+            </table>
         </div>
     )
 }

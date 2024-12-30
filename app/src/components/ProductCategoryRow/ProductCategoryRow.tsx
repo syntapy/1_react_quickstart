@@ -4,6 +4,10 @@ interface Prop {
 
 export default function ProductCategoryRow(props: Props) {
     return (
-        <li>{props.name}</li>
+        <tr align="center">
+            <th colSpan="2">
+                {props.name}
+            </th>
+        </tr>
     )
 }
