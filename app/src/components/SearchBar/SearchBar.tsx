@@ -1,5 +1,11 @@
-export default SearchBar(props: {}) {
+export default function SearchBar() {
     return (
-        <input type="search" id="product-filter" />
+        <div>
+            <input id="product-filter" type="search" placeholder="Search..." />
+            <div>
+                <input id="only-in-stock" type="checkbox" name="only-in-stock" />
+                <label for="only-in-stock">Only show products in stock</label>
+            </div>
+        </div>
     )
 }

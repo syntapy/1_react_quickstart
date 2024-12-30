@@ -1,7 +1,11 @@
 import ProductTable from "../ProductTable/index"
+import SearchBar from "../SearchBar/index"
 
 export default function FilterableProductTable() {
     return (
-        <ProductTable />
+        <div>
+            <SearchBar />
+            <ProductTable />
+        </div>
     )
 }
