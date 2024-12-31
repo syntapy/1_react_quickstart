@@ -4,8 +4,8 @@ interface Prop {
 
 export default function ProductCategoryRow(props: Props) {
     return (
-        <tr align="center">
-            <th colSpan="2">
+        <tr className="flex flex-row justify-center">
+            <th colspan="2">
                 {props.name}
             </th>
         </tr>
