@@ -9,11 +9,20 @@ export type ProductData = {
     items: ProductDataItem[];
 }
 
-import jsonData from "./data.json" assert { type: 'json' }
+import jsonData from "./data.json" with { type: 'json' }
+
+function isProductData(data: ProductData): data is ProductData {
+  return Array.isArray(data.items) && data.items.every((item: ProductDataItem) => 
+      typeof item.category === 'string' &&
+      typeof item.name === 'string' &&
+      typeof item.price === 'number' &&
+      typeof item.stocked === 'boolean')
+}
 
 export default function getProductData(): ProductData {
-    console.log("Inside getProductData")
-    console.log(`data: ${jsonData}`)
-    console.log(`data items: ${jsonData.items}`)
-    return jsonData
+  if (!isProductData(jsonData)) {
+    throw new Error("Invalid JSON structure")
+  }
+
+  return jsonData
 }
