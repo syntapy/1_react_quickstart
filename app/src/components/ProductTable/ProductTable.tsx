@@ -1,17 +1,17 @@
 import ProductCategoryRow from "../ProductCategoryRow/index"
 import ProductRow from "../ProductRow/index"
 
-import dataJSON from "../../data/data.json"
+import { ProductData } from "../../data/index"
 
-export default function ProductTable() {
-    const categoriesUsed={};
+export default function ProductTable(props: { data: ProductData} ) {
+    const categoriesUsed: any = {};
     return (
         <div>
             <div className="flex flex-row">
                 <span className="grow text-left">Name</span><span className="grow text-right">Price</span>
             </div>
             <table className="border-collapse flex flex-col">{
-                dataJSON.items.map(
+                props.data.items.map(
                     item => {
                         if (categoriesUsed.hasOwnProperty(item.category) === false) {
                             categoriesUsed[item.category]=null;
