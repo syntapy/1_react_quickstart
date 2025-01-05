@@ -1,12 +1,12 @@
 export type ProductDataItem = {
-    category: string;
-    name: string;
-    price: number;
-    stocked: boolean;
+    category: string
+    name: string
+    price: number
+    stocked: boolean
 }
 
 export type ProductData = {
-    items: ProductDataItem[];
+    items: ProductDataItem[]
 }
 
 import jsonData from "./data.json" with { type: 'json' }
