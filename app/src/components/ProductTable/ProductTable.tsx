@@ -2,8 +2,10 @@ import ProductCategoryRow from "../ProductCategoryRow/index"
 import ProductRow from "../ProductRow/index"
 
 import { ProductData } from "../../data/index"
+import getProductData from "../../data/index"
 
-export default function ProductTable(props: { data: ProductData} ) {
+export default function ProductTable() {
+    const data: ProductData = getProductData()
     const categoriesUsed: any = {};
     return (
         <div>
@@ -11,7 +13,7 @@ export default function ProductTable(props: { data: ProductData} ) {
                 <span className="grow text-left">Name</span><span className="grow text-right">Price</span>
             </div>
             <table className="border-collapse flex flex-col">{
-                props.data.items.map(
+                data.items.map(
                     item => {
                         if (categoriesUsed.hasOwnProperty(item.category) === false) {
                             categoriesUsed[item.category]=null;
