@@ -1,11 +1,11 @@
-export interface ProductDataItem {
+export type ProductDataItem = {
     category: string;
     name: string;
     price: number;
     stocked: boolean;
 }
 
-export interface ProductData {
+export type ProductData = {
     items: ProductDataItem[];
 }
 
