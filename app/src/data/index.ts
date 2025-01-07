@@ -7,10 +7,18 @@ function assertName(value: string): asserts value is Name {
   }
 }
 
+type PositiveNumber = number
+
+function assertPositiveNumber(value: number): asserts value is PositiveNumber {
+  if (value <= 0) {
+    throw new Error(`"{value}" is not positive non-zero`)
+  }
+}
+
 export type ProductDataItem = {
     category: Name 
     name: Name
-    price: number
+    price: PositiveNumber
     stocked: boolean
 }
 
