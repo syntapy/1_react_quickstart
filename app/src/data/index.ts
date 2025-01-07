@@ -1,15 +1,15 @@
-type CapitalizedWord = string;
+type Name = string
 
-function assertCapitalizedWord(value: string): asserts value is CapitalizedWord {
-  const categoryStringRegex: RegExpMatchArray = /^[A-Z][a-z][a-z][a-z][a-z]*$/
-  if (!categoryStringRegex.test(value)) {
-    throw new Error(`"{value}" is not a capitalized word`)
+function assertName(value: string): asserts value is Name {
+  const nameRegex: RegExpMatchArray = /^[A-Za-z\s]*$/
+  if (!nameRegex.test(value)) {
+    throw new Error(`"{value}" does not consist of only alphabetical characters or spaces`)
   }
 }
 
 export type ProductDataItem = {
-    category: CapitalizedWord 
-    name: string
+    category: Name 
+    name: Name
     price: number
     stocked: boolean
 }
