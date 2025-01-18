@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import ProductCategoryRow from "../ProductCategoryRow/index"
 import ProductRow from "../ProductRow/index"
 
@@ -8,29 +9,33 @@ export default function ProductTable() {
     const data: ProductData = getProductData()
     const categoriesUsed: any = {};
     return (
-        <div>
-            <div className="flex flex-row">
-                <span className="grow text-left">Name</span><span className="grow text-right">Price</span>
-            </div>
-            <table className="border-collapse flex flex-col">{
-                data.items.map(
-                    item => {
+        <table>
+            <thead className="flex flex-row">
+              <tr>
+                <th className="grow text-left">Name</th>
+                <th className="grow text-right">Price</th>
+              </tr>
+            </thead>
+            <tbody className="border-collapse flex flex-col">
+                {data.items.map(
+                    (item, index) => {
                         if (categoriesUsed.hasOwnProperty(item.category) === false) {
                             categoriesUsed[item.category]=null;
                             return (
-                                <>
+                                <Fragment key={index}>
                                     <ProductCategoryRow name={item.category} />
                                     <ProductRow name={item.name} price={item.price} stocked={item.stocked} />
-                                </>
+                                </Fragment>
                             )
                         } else 
                             return (
-                                <ProductRow name={item.name} price={item.price} stocked={item.stocked} />
+                                <Fragment key={index}>
+                                  <ProductRow key={`item-${index}`} name={item.name} price={item.price} stocked={item.stocked} />
+                                </Fragment>
                             )
                     }
-                )
-            }
-            </table>
-        </div>
+                )}
+            </tbody>
+        </table>
     )
 }
