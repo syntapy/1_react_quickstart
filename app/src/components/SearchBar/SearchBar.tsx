@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 type Props = {
   searchText: string
   setSearchText: (s: string) => void
@@ -5,7 +7,12 @@ type Props = {
 }
 
 export default function SearchBar(props: Props) {
-  const handleTyping = (e) => props.setSearchText(e.target.value)
+  function handleTyping<T>(e: T) {
+    function caller(e: T) {
+      props.setSearchText(e.target.value)
+    }
+    _.debounce(caller, 300)(e)
+  }
 
   return (
     <form>
