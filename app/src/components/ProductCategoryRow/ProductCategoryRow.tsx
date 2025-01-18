@@ -1,13 +1,13 @@
 interface Props {
-    name: string
+  name: string
 }
 
 export default function ProductCategoryRow(props: Props) {
-    return (
-        <tr className="flex flex-row justify-center" >
-          <th colSpan="2">
-            {props.name}
-          </th>
-        </tr>
-    )
+  return (
+    <tr className="flex flex-row justify-center" >
+      <th colSpan="2">
+        {props.name}
+      </th>
+    </tr>
+  )
 }
