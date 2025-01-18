@@ -1,12 +1,13 @@
 import { Fragment } from 'react'
 import ProductCategoryRow from "../ProductCategoryRow/index"
 import ProductRow from "../ProductRow/index"
-
 import { ProductData } from "../../data/index"
-import getProductData from "../../data/index"
 
-export default function ProductTable() {
-  const data: ProductData = getProductData()
+type Props = {
+  data: ProductData
+}
+
+export default function ProductTable(props: Props) {
   const categoriesUsed: any = {};
   return (
     <table>
@@ -17,7 +18,7 @@ export default function ProductTable() {
         </tr>
       </thead>
       <tbody className="border-collapse flex flex-col">
-        {data.items.map(
+        {props.data.items.map(
           (item, index) => {
             if (categoriesUsed.hasOwnProperty(item.category) === false) {
               categoriesUsed[item.category]=null;
