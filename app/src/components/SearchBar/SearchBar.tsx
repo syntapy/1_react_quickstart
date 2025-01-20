@@ -1,3 +1,4 @@
+import React from 'react'
 import _ from 'lodash'
 
 type Props = {
@@ -7,11 +8,12 @@ type Props = {
 }
 
 export default function SearchBar(props: Props) {
-  function handleTyping<T>(e: T) {
-    function caller(e: T) {
-      props.setSearchText(e.target.value)
+  function handleTyping(e: React.ChangeEvent<HTMLInputElement>) {
+    function caller(e: React.ChangeEvent<HTMLInputElement>) {
+      props.setSearchText(e.currentTarget.value)
     }
-    _.debounce(caller, 300)(e)
+    //_.debounce(caller, 300)(e)
+    caller(e)
   }
 
   return (
