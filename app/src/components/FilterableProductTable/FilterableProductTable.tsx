@@ -4,7 +4,7 @@ import { useState } from 'react'
 import ProductTable from "../ProductTable/index"
 import SearchBar from "../SearchBar/index"
 
-import { ProductData, ProductDataItem } from "../../data/index"
+import { ProductData, ProductDataItem, _filterProductData } from "../../data/index"
 import getProductData from "../../data/index"
 
 export default function FilterableProductTable() {
@@ -12,7 +12,9 @@ export default function FilterableProductTable() {
   const [showOnlyInStock, setShowOnlyInStock] = useState(false)
 
   const data: ProductData = getProductData()
-  const dataFiltered: ProductData = {items: []}  as ProductData
+  let dataFiltered: ProductData = {items: []}
+  
+  dataFiltered = _filterProductData(data, searchText)
 
   return (
     <div>
