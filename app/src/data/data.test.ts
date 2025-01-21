@@ -20,10 +20,20 @@ const bellPeppers: ProductData = {
   ]
 }
 
+const ratFood: ProductData = {
+  items: [
+    {"category": "For Pets", "name": "Rat Food", "price": 8, "stocked": true },
+  ]
+}
+
 test('Data filter 1', () => {
   expect(_filterProductData(data, "Apples")).toStrictEqual(apples)
 })
 
 test('Data filter 2', () => {
   expect(_filterProductData(data, "Bell")).toStrictEqual(bellPeppers)
+})
+
+test('Data filter 3', () => {
+  expect(_filterProductData(data, "Pets")).toStrictEqual(ratFood)
 })
