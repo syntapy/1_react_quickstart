@@ -43,7 +43,10 @@ export function _filterProductData(data: ProductData, filterText: string): Produ
   data.items.forEach(item => {
     let key: string
     for (key in item)
-      if (key.includes(filterText) || item[key].toString().includes(filterText))
+      if (key.includes(filterText))
+        dataFiltered.items.push(item)
+      else if (typeof item[key] === "string" 
+               && (item[key] as string).includes(filterText))
         dataFiltered.items.push(item)
   })
 

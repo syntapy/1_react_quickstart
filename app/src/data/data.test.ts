@@ -3,18 +3,27 @@ import { beforeEach, afterEach, describe, it, expect, test } from 'vitest'
 import { ProductData, ProductDataItem, _filterProductData } from "./index"
 import getProductData from "./index"
 
-const apples: ProductData = [
-  {"category": "Fruits", "name": "Apples", "price": 3, "stocked": true },
-]
+const data = getProductData()  
 
-const bellPeppers: ProductData = [
-  {"category": "Vegetables", "name": "Orange Bell Peppers", "price": 4, "stocked": true },
-  {"category": "Vegetables", "name": "Yellow Bell Peppers", "price": 4, "stocked": true },
-  {"category": "Vegetables", "name": "Green Bell Peppers", "price": 4, "stocked": true },
-]
+const apples: ProductData = {
+  items: [
+    {"category": "Fruits", "name": "Apples", "price": 3, "stocked": true },
+  ]
+}
 
-test('Data filter', () => {
-  const data = getProductData()  
+const bellPeppers: ProductData = {
+  items: [
+    {"category": "Vegetables", "name": "Red Bell Peppers", "price": 4, "stocked": true },
+    {"category": "Vegetables", "name": "Orange Bell Peppers", "price": 4, "stocked": true },
+    {"category": "Vegetables", "name": "Yellow Bell Peppers", "price": 4, "stocked": true },
+    {"category": "Vegetables", "name": "Green Bell Peppers", "price": 4, "stocked": true },
+  ]
+}
 
-  expect(_filterProductData(data, "Apples").items).toStrictEqual(apples)
+test('Data filter 1', () => {
+  expect(_filterProductData(data, "Apples")).toStrictEqual(apples)
+})
+
+test('Data filter 2', () => {
+  expect(_filterProductData(data, "Bell")).toStrictEqual(bellPeppers)
 })
