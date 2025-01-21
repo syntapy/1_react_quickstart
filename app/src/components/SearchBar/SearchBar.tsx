@@ -8,12 +8,17 @@ type Props = {
 }
 
 export default function SearchBar(props: Props) {
+  const [localSearchText, setLocalSearchText] = React.useState(props.searchText)
+
   const debouncedSetText = React.useCallback(
     _.debounce((s: string) => props.setSearchText(s), 300)
     , [props.setSearchText]
   )
 
-  const handler = (e: React.ChangeEventHandler<HTMLInputElement>) => debouncedSetText(e.target.value)
+  const handler = (e: React.ChangeEventHandler<HTMLInputElement>) => {
+    setLocalSearchText(e.target.value)
+    debouncedSetText(localSearchText)
+  }
 
   console.log(props.searchText)
   return (
@@ -23,7 +28,7 @@ export default function SearchBar(props: Props) {
         type="search"
         pattern="[a-zA-Z0-9]{3,}"
         placeholder="Search..."
-        value={props.searchText}
+        value={localSearchText}
         onChange={handler}
       />
       <div>
