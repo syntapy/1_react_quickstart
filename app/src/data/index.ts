@@ -40,6 +40,9 @@ function isProductData(data: ProductData): data is ProductData {
 export function _filterProductData(data: ProductData, filterText: string): ProductData {
   const dataFiltered: ProductData = {items: []}  as ProductData
 
+  if (filterText === "")
+    return data
+
   data.items.forEach(item => {
     let key: string
     for (key in item)
