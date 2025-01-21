@@ -8,14 +8,14 @@ type Props = {
 }
 
 export default function SearchBar(props: Props) {
-  function handleTyping(e: React.ChangeEvent<HTMLInputElement>) {
-    function caller(e: React.ChangeEvent<HTMLInputElement>) {
-      props.setSearchText(e.currentTarget.value)
-    }
-    //_.debounce(caller, 300)(e)
-    caller(e)
-  }
+  const debouncedSetText = React.useCallback(
+    _.debounce((s: string) => props.setSearchText(s), 300)
+    , [props.setSearchText]
+  )
 
+  const handler = (e: React.ChangeEventHandler<HTMLInputElement>) => debouncedSetText(e.target.value)
+
+  console.log(props.searchText)
   return (
     <form>
       <input 
@@ -24,7 +24,7 @@ export default function SearchBar(props: Props) {
         pattern="[a-zA-Z0-9]{3,}"
         placeholder="Search..."
         value={props.searchText}
-        onChange={handleTyping}
+        onChange={handler}
       />
       <div>
         <input id="only-in-stock" type="checkbox" name="only-in-stock" />

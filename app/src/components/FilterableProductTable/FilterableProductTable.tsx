@@ -12,11 +12,13 @@ export default function FilterableProductTable() {
   const [searchText, setSearchText] = useState('')
   const [showOnlyInStock, setShowOnlyInStock] = useState(false)
 
-  console.log(searchText)
-
   return (
     <div>
-      <SearchBar setSearchText={setSearchText} setShowOnlyInStock={setShowOnlyInStock} searchText={searchText}/>
+      <SearchBar
+        setSearchText={setSearchText}
+        setShowOnlyInStock={setShowOnlyInStock}
+        searchText={searchText}
+      />
       <ProductTable data={data}/>
     </div>
   )
