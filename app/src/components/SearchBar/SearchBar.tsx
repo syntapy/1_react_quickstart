@@ -1,5 +1,6 @@
 import React from 'react'
 import _ from 'lodash'
+import { searchDebounceTime } from '../../utils'
 
 type Props = {
   searchText: string
@@ -11,7 +12,7 @@ export default function SearchBar(props: Props) {
   const [localSearchText, setLocalSearchText] = React.useState(props.searchText)
 
   const debouncedSetText = React.useCallback(
-    _.debounce((s: string) => props.setSearchText(s), 300)
+    _.debounce((s: string) => props.setSearchText(s), searchDebounceTime)
     , [props.setSearchText]
   )
 
