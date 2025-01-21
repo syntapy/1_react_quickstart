@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import React from 'react'
 import _ from 'lodash'
 import { searchDebounceTime } from '../../utils'
@@ -5,23 +7,22 @@ import { searchDebounceTime } from '../../utils'
 type Props = {
   searchText: string
   setSearchText: (s: string) => void
-  onCheck: (v: boolean) => void
+  setOnlyInStock: (v: boolean) => void
 }
 
 export default function SearchBar(props: Props) {
-  const [localSearchText, setLocalSearchText] = React.useState(props.searchText)
+  const [localSearchText, setLocalSearchText] = useState(props.searchText)
 
   const debouncedSetText = React.useCallback(
     _.debounce((s: string) => props.setSearchText(s), searchDebounceTime)
     , [props.setSearchText]
   )
 
-  const handler = (e: React.ChangeEventHandler<HTMLInputElement>) => {
+  const handler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLocalSearchText(e.target.value)
     debouncedSetText(localSearchText)
   }
 
-  console.log(props.searchText)
   return (
     <form>
       <input 

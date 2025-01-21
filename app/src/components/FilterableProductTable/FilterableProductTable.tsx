@@ -1,10 +1,8 @@
-import React from 'react'
-
 import { useState } from 'react'
 import ProductTable from "../ProductTable/index"
 import SearchBar from "../SearchBar/index"
 
-import { ProductData, ProductDataItem, _filterProductData } from "../../data/index"
+import { ProductData, _filterProductData } from "../../data/index"
 import getProductData from "../../data/index"
 
 export default function FilterableProductTable() {
@@ -20,7 +18,7 @@ export default function FilterableProductTable() {
     <div>
       <SearchBar
         setSearchText={setSearchText}
-        setShowOnlyInStock={setShowOnlyInStock}
+        setOnlyInStock={setShowOnlyInStock}
         searchText={searchText}
       />
       <ProductTable data={dataFiltered}/>
