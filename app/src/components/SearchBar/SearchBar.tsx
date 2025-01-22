@@ -18,9 +18,10 @@ export default function SearchBar(props: Props) {
     , [props.setSearchText]
   )
 
-  const handler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLocalSearchText(e.target.value)
-    debouncedSetText(localSearchText)
+  const handler = (e: React.FormEvent<HTMLInputElement>) => {
+    const newValue: string = e.currentTarget.value
+    setLocalSearchText(newValue)
+    debouncedSetText(newValue)
   }
 
   return (
@@ -31,7 +32,7 @@ export default function SearchBar(props: Props) {
         pattern="[a-zA-Z0-9]{3,}"
         placeholder="Search..."
         value={localSearchText}
-        onChange={handler}
+        onInput={handler}
       />
       <div>
         <input id="only-in-stock" type="checkbox" name="only-in-stock" />
