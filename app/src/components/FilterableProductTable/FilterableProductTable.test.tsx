@@ -1,10 +1,11 @@
 import React from 'react'
 
 import FilterableProductTable from './FilterableProductTable'
-import { beforeEach, afterEach, describe, it, expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
+import { searchDebounceTime } from '../../utils'
 
 import axe from 'axe-core'
-import { render, fireEvent, screen } from '@testing-library/react'
+import { within, render, screen, act } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 test('Accessibility', () => {
@@ -24,8 +25,24 @@ test('Accessibility', () => {
 })
 
 test('Enter data in search field', async () => {
+  //vi.useFakeTimers()
+  //const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime })
   const user = userEvent.setup()
+
   render(<FilterableProductTable />)
 
-  const searchBox = screen.getByRole('searchbox')
-})
+  const searchBox = await screen.findByRole('searchbox')
+
+  await act(async () => {
+    await user.click(searchBox)
+    await user.type(searchBox, "Apples")
+    await new Promise(resolve => setTimeout(resolve, searchDebounceTime + 100))
+  })
+
+  //await vi.advanceTimersByTimeAsync(searchDebounceTime+300)
+
+  const tableBody = await screen.findByTestId("table-body")
+  const rows = within(tableBody).getAllByRole('row')
+
+  expect(rows).toHaveLength(2)
+}, 40000)

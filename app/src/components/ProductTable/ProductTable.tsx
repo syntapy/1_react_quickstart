@@ -17,7 +17,7 @@ export default function ProductTable(props: Props) {
           <th className="grow text-right">Price</th>
         </tr>
       </thead>
-      <tbody className="border-collapse flex flex-col">
+      <tbody data-testid="table-body" className="border-collapse flex flex-col">
         {props.data.items.map(
           (item, index) => {
             if (categoriesUsed.hasOwnProperty(item.category) === false) {
