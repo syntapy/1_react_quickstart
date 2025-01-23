@@ -45,4 +45,4 @@ test('Enter data in search field', async () => {
   const rows = within(tableBody).getAllByRole('row')
 
   expect(rows).toHaveLength(2)
-}, 40000)
+})
