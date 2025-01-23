@@ -4,7 +4,7 @@ import { beforeEach, afterEach, describe, expect, test } from 'vitest'
 import FilterableProductTable from './FilterableProductTable'
 import { searchDebounceTime } from '../../utils'
 
-import userEvent from '@testing-library/user-event'
+import userEvent, { UserEvent } from '@testing-library/user-event'
 
 describe("Number data rows", () => {
   let user: UserEvent, tableBody: HTMLElement
