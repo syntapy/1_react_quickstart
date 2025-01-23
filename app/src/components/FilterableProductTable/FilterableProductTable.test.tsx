@@ -18,8 +18,6 @@ describe("Number data rows", () => {
   afterEach(() => cleanup())
 
   test('All data', async () => {
-    //vi.useFakeTimers()
-    //const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime })
     let rows = within(tableBody).getAllByRole('row')
     expect(rows.length).toBeGreaterThan(10)
   })
@@ -32,8 +30,6 @@ describe("Number data rows", () => {
       await user.type(searchBox, "Apples")
       await new Promise(resolve => setTimeout(resolve, searchDebounceTime + 100))
     })
-
-    //await vi.advanceTimersByTimeAsync(searchDebounceTime+300)
 
     let rows = within(tableBody).getAllByRole('row')
 
