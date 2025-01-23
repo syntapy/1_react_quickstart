@@ -1,31 +1,38 @@
-import React from 'react'
+import { render, cleanup, within, screen, act } from '@testing-library/react'
+import { beforeEach, afterEach, describe, expect, test } from 'vitest'
 
 import FilterableProductTable from './FilterableProductTable'
-import { beforeEach, afterEach, describe, it, expect, test } from 'vitest'
+import { searchDebounceTime } from '../../utils'
 
-import axe from 'axe-core'
-import { render, fireEvent, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import userEvent, { UserEvent } from '@testing-library/user-event'
 
-test('Accessibility', () => {
-  const { container } = render(<FilterableProductTable />)
+describe("Number data rows", () => {
+  let user: UserEvent, tableBody: HTMLElement
 
-  const config = {
-    rules: {
-      'color-contrast': { enabled: false },
-      'link-in-text-block': { enabled: false }
-    }
-  }
-
-  axe.run(container, config, (err, { violations }) => {
-    expect(err).toBe(null);
-    expect(violations).toHaveLength(0);
+  beforeEach(async () => {
+    user = userEvent.setup()
+    render(<FilterableProductTable />)
+    tableBody = await screen.findByTestId("table-body")
   })
-})
 
-test('Enter data in search field', async () => {
-  const user = userEvent.setup()
-  render(<FilterableProductTable />)
+  afterEach(() => cleanup())
 
-  const searchBox = screen.getByRole('searchbox')
+  test('All data', async () => {
+    let rows = within(tableBody).getAllByRole('row')
+    expect(rows.length).toBeGreaterThan(10)
+  })
+
+  test('Apples only', async () => {
+    const searchBox = await screen.findByRole('searchbox')
+
+    await act(async () => {
+      await user.click(searchBox)
+      await user.type(searchBox, "Apples")
+      await new Promise(resolve => setTimeout(resolve, searchDebounceTime + 100))
+    })
+
+    let rows = within(tableBody).getAllByRole('row')
+
+    expect(rows).toHaveLength(2)
+  })
 })

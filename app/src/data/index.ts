@@ -16,6 +16,7 @@ function assertPositiveNumber(value: number): asserts value is PositiveNumber {
 }
 
 export type ProductDataItem = {
+    [key: string]: Name | PositiveNumber | boolean
     category: Name 
     name: Name
     price: PositiveNumber
@@ -34,6 +35,25 @@ function isProductData(data: ProductData): data is ProductData {
       typeof item.name === 'string' &&
       typeof item.price === 'number' &&
       typeof item.stocked === 'boolean')
+}
+
+export function _filterProductData(data: ProductData, filterText: string): ProductData {
+  const dataFiltered: ProductData = {items: []}  as ProductData
+
+  if (filterText === "")
+    return data
+
+  data.items.forEach(item => {
+    let key: string
+    for (key in item)
+      if (key.includes(filterText))
+        dataFiltered.items.push(item)
+      else if (typeof item[key] === "string" 
+               && (item[key] as string).includes(filterText))
+        dataFiltered.items.push(item)
+  })
+
+  return dataFiltered
 }
 
 export default function getProductData(): ProductData {

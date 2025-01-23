@@ -1,7 +1,39 @@
-export default function SearchBar() {
+import { useState } from 'react'
+
+import React from 'react'
+import _ from 'lodash'
+import { searchDebounceTime } from '../../utils'
+
+type Props = {
+  searchText: string
+  setSearchText: (s: string) => void
+  setOnlyInStock: (v: boolean) => void
+}
+
+export default function SearchBar(props: Props) {
+  const [localSearchText, setLocalSearchText] = useState(props.searchText)
+
+  const debouncedSetText = React.useCallback(
+    _.debounce((s: string) => props.setSearchText(s), searchDebounceTime)
+    , [props.setSearchText]
+  )
+
+  const handler = (e: React.FormEvent<HTMLInputElement>) => {
+    const newValue: string = e.currentTarget.value
+    setLocalSearchText(newValue)
+    debouncedSetText(newValue)
+  }
+
   return (
     <form>
-      <input id="product-filter" type="search" pattern="[a-zA-Z0-9]{3,}" placeholder="Search..." />
+      <input 
+        id="product-filter"
+        type="search"
+        pattern="[a-zA-Z0-9]{3,}"
+        placeholder="Search..."
+        value={localSearchText}
+        onInput={handler}
+      />
       <div>
         <input id="only-in-stock" type="checkbox" name="only-in-stock" />
         <label htmlFor="only-in-stock">Only show products in stock</label>
