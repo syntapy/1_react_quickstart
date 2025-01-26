@@ -35,6 +35,11 @@
   color: var(--color-magnolia-500);
   background-color: var(--color-licorice-500);
 
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
