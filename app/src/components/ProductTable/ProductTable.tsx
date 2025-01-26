@@ -11,6 +11,7 @@ export default function ProductTable(props: Props) {
   const categoriesUsed: any = {};
   return (
     <table>
+      <caption>Products and their prices</caption>
       <thead className="flex flex-row">
         <tr>
           <th className="grow text-left">Name</th>
