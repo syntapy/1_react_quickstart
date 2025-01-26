@@ -11,13 +11,13 @@ export default function ProductTable(props: Props) {
   const categoriesUsed: any = {};
   return (
     <table>
-      <thead className="flex flex-row">
+      <thead>
         <tr>
-          <th className="grow text-left">Name</th>
-          <th className="grow text-right">Price</th>
+          <th>Name</th>
+          <th>Price</th>
         </tr>
       </thead>
-      <tbody data-testid="table-body" className="border-collapse flex flex-col">
+      <tbody data-testid="table-body">
         {props.data.items.map(
           (item, index) => {
             if (categoriesUsed.hasOwnProperty(item.category) === false) {
