@@ -12,6 +12,7 @@ export default function ProductTable(props: Props) {
   return (
     <table>
       <thead>
+      <caption>Products and their prices</caption>
         <tr>
           <th>Name</th>
           <th>Price</th>
