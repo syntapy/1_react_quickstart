@@ -25,19 +25,21 @@ export default function SearchBar(props: Props) {
   }
 
   return (
-    <form>
-      <input 
-        id="product-filter"
-        type="search"
-        pattern="[a-zA-Z0-9]{3,}"
-        placeholder="Search..."
-        value={localSearchText}
-        onInput={handler}
-      />
-      <div>
-        <input id="only-in-stock" type="checkbox" name="only-in-stock" />
-        <label htmlFor="only-in-stock">Only show products in stock</label>
-      </div>
-    </form>
+    <div className="border-lemon-lime-500 border-3 rounded-md">
+      <form>
+        <input 
+          id="product-filter"
+          type="search"
+          pattern="[a-zA-Z0-9]{3,}"
+          placeholder="Search..."
+          value={localSearchText}
+          onInput={handler}
+        />
+        <div>
+          <input id="only-in-stock" type="checkbox" name="only-in-stock" />
+          <label htmlFor="only-in-stock">Only show products in stock</label>
+        </div>
+      </form>
+    </div>
   )
 }
