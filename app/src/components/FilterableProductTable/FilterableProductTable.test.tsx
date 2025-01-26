@@ -35,4 +35,10 @@ describe("Number data rows", () => {
 
     expect(rows).toHaveLength(2)
   })
+
+  test('Classname', async () => {
+    const classListExpected: string = " border-lemon-lime-500 border-3 rounded-md"
+    const productTable: HTMLElement = await screen.findByTestId("filterable-product-table")
+    expect(productTable.classList.toString()).toBe(classListExpected)
+  })
 })
