@@ -15,13 +15,15 @@ export default function FilterableProductTable() {
   dataFiltered = _filterProductData(data, searchText)
 
   return (
-    <div className="border border-licorice-500 border-xs">
-      <SearchBar
-        setSearchText={setSearchText}
-        setOnlyInStock={setShowOnlyInStock}
-        searchText={searchText}
-      />
-      <ProductTable data={dataFiltered}/>
+    <div className="border-sgbus-green-500 border-3 rounded-md">
+      <div className="m-4">
+        <SearchBar
+          setSearchText={setSearchText}
+          setOnlyInStock={setShowOnlyInStock}
+          searchText={searchText}
+        />
+        <ProductTable data={dataFiltered}/>
+      </div>
     </div>
   )
 }
