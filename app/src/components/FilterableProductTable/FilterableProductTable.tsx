@@ -15,7 +15,7 @@ export default function FilterableProductTable() {
   dataFiltered = _filterProductData(data, searchText)
 
   return (
-    <div>
+    <div className="border border-licorice-500 border-xs">
       <SearchBar
         setSearchText={setSearchText}
         setOnlyInStock={setShowOnlyInStock}
