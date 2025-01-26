@@ -11,8 +11,8 @@ export default function ProductTable(props: Props) {
   const categoriesUsed: any = {};
   return (
     <table>
-      <thead>
       <caption>Products and their prices</caption>
+      <thead>
         <tr>
           <th>Name</th>
           <th>Price</th>
