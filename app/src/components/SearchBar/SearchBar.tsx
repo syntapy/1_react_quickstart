@@ -4,6 +4,8 @@ import React from 'react'
 import _ from 'lodash'
 import { searchDebounceTime } from '../../utils'
 
+import style from "../../style.ts"
+
 type Props = {
   searchText: string
   setSearchText: (s: string) => void
@@ -25,21 +27,28 @@ export default function SearchBar(props: Props) {
   }
 
   return (
-    <div className="border-lemon-lime-500 border-3 rounded-md">
-      <form>
-        <input 
-          id="product-filter"
-          type="search"
-          pattern="[a-zA-Z0-9]{3,}"
-          placeholder="Search..."
-          value={localSearchText}
-          onInput={handler}
+    <form className={style.orange_peel_border}>
+      <input 
+        id="product-filter"
+        type="search"
+        pattern="[a-zA-Z0-9]{3,}"
+        placeholder="Search..."
+        value={localSearchText}
+        onInput={handler}
+        className={style.lemon_lime_border}
+      />
+      <div>
+        <input
+          id="only-in-stock"
+          type="checkbox"
+          name="only-in-stock"
         />
-        <div>
-          <input id="only-in-stock" type="checkbox" name="only-in-stock" />
-          <label htmlFor="only-in-stock">Only show products in stock</label>
-        </div>
-      </form>
-    </div>
+        <label
+          htmlFor="only-in-stock"
+        >
+          Only show products in stock
+        </label>
+      </div>
+    </form>
   )
 }

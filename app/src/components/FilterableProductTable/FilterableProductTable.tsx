@@ -19,16 +19,14 @@ export default function FilterableProductTable() {
   return (
     <div 
       data-testid="filterable-product-table"
-      className={style.lemon_lime_border}
+      className={"p-16 " + style.licorice_border}
     >
-      <div className="m-4">
-        <SearchBar
-          setSearchText={setSearchText}
-          setOnlyInStock={setShowOnlyInStock}
-          searchText={searchText}
-        />
-        <ProductTable data={dataFiltered}/>
-      </div>
+      <SearchBar
+        setSearchText={setSearchText}
+        setOnlyInStock={setShowOnlyInStock}
+        searchText={searchText}
+      />
+      <ProductTable data={dataFiltered}/>
     </div>
   )
 }
