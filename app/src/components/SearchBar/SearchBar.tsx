@@ -16,8 +16,8 @@ export default function SearchBar(props: Props) {
   const [localSearchText, setLocalSearchText] = useState(props.searchText)
 
   const debouncedSetText = React.useCallback(
-    _.debounce((s: string) => props.setSearchText(s), searchDebounceTime)
-    , [props.setSearchText]
+    _.debounce((s: string) => props.setSearchText(s), searchDebounceTime),
+    [props.setSearchText]
   )
 
   const handler = (e: React.FormEvent<HTMLInputElement>) => {
@@ -27,7 +27,7 @@ export default function SearchBar(props: Props) {
   }
 
   return (
-    <form className={style.orange_peel_border}>
+    <form className="">
       <input 
         id="product-filter"
         type="search"
@@ -35,17 +35,19 @@ export default function SearchBar(props: Props) {
         placeholder="Search..."
         value={localSearchText}
         onInput={handler}
-        className={style.lemon_lime_border}
+        className={"placeholder:text-licorice-500 pl-2 w-72 mb-5"+style.lemon_lime_border}
       />
       <div>
         <input
           id="only-in-stock"
           type="checkbox"
           name="only-in-stock"
+          className={"appearance-none bg-magnolia-500 border-licorice-500 border-2 cursor-pointer accent-lemon-lime-500"
+            + " checked:magnolia-500 checked:after:content-[var(--custom-checkmark)] checked:border-orange-peel-500 align-top checked:after:accent-orange-peel-500"
+            + " p-[0px] w-5 h-5"
+            + " rounded-md"}
         />
-        <label
-          htmlFor="only-in-stock"
-        >
+        <label htmlFor="only-in-stock" >
           Only show products in stock
         </label>
       </div>
