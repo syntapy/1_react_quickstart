@@ -42,9 +42,9 @@ export default function SearchBar(props: Props) {
           id="only-in-stock"
           type="checkbox"
           name="only-in-stock"
-          className={"appearance-none bg-magnolia-500 border-licorice-500 border-2 cursor-pointer accent-lemon-lime-500"
-            + " checked:magnolia-500 checked:after:content-[var(--custom-checkmark)] checked:border-orange-peel-500 align-top checked:after:accent-orange-peel-500"
-            + " p-[0px] w-5 h-5"
+          className={"appearance-none bg-magnolia-500 border-licorice-500 border-2 cursor-pointer align-top "
+            + " checked:border-orange-peel-500 checked:bg-orange-peel-500 bg-clip-content"
+            + " p-[3px] w-5 h-5"
             + " rounded-md"}
         />
         <label htmlFor="only-in-stock" >
