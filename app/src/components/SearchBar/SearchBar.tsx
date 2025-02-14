@@ -42,10 +42,17 @@ export default function SearchBar(props: Props) {
           id="only-in-stock"
           type="checkbox"
           name="only-in-stock"
-          className={"appearance-none border-licorice-500 border-2 cursor-pointer"
-            + " w-5 h-5 mr-2 bg-clip-content p-[2px]"
-            + " checked:border-licorice-500 checked:bg-licorice-500"
-            + " before:rounded-md rounded-md overflow-hidden"}
+          className={"appearance-none relative w-5 h-5 border border-2"
+            + " border-licorice-500 checked:border-sgbus-green-500"
+            + " before:absolute before:hidden checked:before:block"
+            + " before:text-12"
+            + " before:left-1/2 before:top-1/2"
+            + " before:-translate-x-1/2 before:-translate-y-1/2"
+            + " before:content-['✓'] cursor-pointer"
+            + " before:text-sgbus-green-500 before:text-bold"
+            + " transition duration-200"
+            + " align-top bg-no-repeat bg-center bg-contain"
+          }
         />
         <label htmlFor="only-in-stock" >
           Only show products in stock
