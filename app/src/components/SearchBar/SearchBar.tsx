@@ -4,6 +4,8 @@ import React from 'react'
 import _ from 'lodash'
 import { searchDebounceTime } from '../../utils'
 
+import CheckInput from '../CheckInput/index'
+
 type Props = {
   searchText: string
   setSearchText: (s: string) => void
@@ -35,8 +37,7 @@ export default function SearchBar(props: Props) {
         onInput={handler}
       />
       <div>
-        <input id="only-in-stock" type="checkbox" name="only-in-stock" />
-        <label htmlFor="only-in-stock">Only show products in stock</label>
+        <CheckInput id_name="only-in-stock" />
       </div>
     </form>
   )
