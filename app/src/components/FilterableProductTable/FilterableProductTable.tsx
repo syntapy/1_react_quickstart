@@ -19,16 +19,16 @@ export default function FilterableProductTable(props: style.StyleProps) {
   return (
     <div 
       data-testid="filterable-product-table"
-      className={style.licorice_border + " p-16 " + props.className}
+      className={style.licorice_border + " py-16 pl-16 pr-32 flex flex-row items-start justify-between " + props.className}
     >
       <SearchBar
-        className="inline-block"
+        className=""
         setSearchText={setSearchText}
         setOnlyInStock={setShowOnlyInStock}
         searchText={searchText}
       />
       <ProductTable
-        className="inline-block"
+        className=""
         data={dataFiltered}
       />
     </div>
