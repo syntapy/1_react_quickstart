@@ -12,7 +12,7 @@ type Props = {
 export default function ProductTable(props: Props) {
   const categoriesUsed: any = {};
   return (
-    <table className={style.orange_peel_border + " w-full " + props.className}>
+    <table className={"w-full " + props.className}>
       <caption>Products and their prices</caption>
       <thead>
         <tr>

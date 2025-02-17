@@ -28,7 +28,7 @@ export default function SearchBar(props: Props) {
   }
 
   return (
-    <form className={props.className + " align-top " + style.lemon_lime_border}>
+    <form className={props.className + " align-top"}>
       <input 
         id="product-filter"
         type="search"
