@@ -1,16 +1,18 @@
 import { Fragment } from 'react'
+import { ProductData } from "../../data/index"
 import ProductCategoryRow from "../ProductCategoryRow/index"
 import ProductRow from "../ProductRow/index"
-import { ProductData } from "../../data/index"
+
+import style from "../../style.ts"
 
 type Props = {
   data: ProductData
-}
+} & style.Props
 
 export default function ProductTable(props: Props) {
   const categoriesUsed: any = {};
   return (
-    <table>
+    <table className={style.orange_peel_border + " " + props.className}>
       <caption>Products and their prices</caption>
       <thead>
         <tr>

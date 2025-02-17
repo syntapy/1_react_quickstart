@@ -11,7 +11,7 @@ type Props = {
   searchText: string
   setSearchText: (s: string) => void
   setOnlyInStock: (v: boolean) => void
-}
+} & style.Props
 
 export default function SearchBar(props: Props) {
   const [localSearchText, setLocalSearchText] = useState(props.searchText)
@@ -28,7 +28,7 @@ export default function SearchBar(props: Props) {
   }
 
   return (
-    <form className="">
+    <form className={props.className}>
       <input 
         id="product-filter"
         type="search"
@@ -36,7 +36,7 @@ export default function SearchBar(props: Props) {
         placeholder="Search..."
         value={localSearchText}
         onInput={handler}
-        className={"placeholder:text-licorice-500 pl-2 w-72 mb-5"+style.licorice_border}
+        className={"placeholder:text-licorice-500 pl-2 w-72 mb-5 "+style.licorice_border}
       />
       <div>
         <CheckInput id_name="only-in-stock" />

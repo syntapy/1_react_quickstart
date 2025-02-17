@@ -7,7 +7,7 @@ import style from "../../style.ts"
 import { ProductData, _filterProductData } from "../../data/index"
 import getProductData from "../../data/index"
 
-export default function FilterableProductTable() {
+export default function FilterableProductTable(props: style.StyleProps) {
   const [searchText, setSearchText] = useState('')
   const [showOnlyInStock, setShowOnlyInStock] = useState(false)
 
@@ -19,14 +19,18 @@ export default function FilterableProductTable() {
   return (
     <div 
       data-testid="filterable-product-table"
-      className={"p-16 " + style.licorice_border}
+      className={style.licorice_border + " p-16 " + props.className}
     >
       <SearchBar
+        className="inline-block"
         setSearchText={setSearchText}
         setOnlyInStock={setShowOnlyInStock}
         searchText={searchText}
       />
-      <ProductTable data={dataFiltered}/>
+      <ProductTable
+        className="inline-block"
+        data={dataFiltered}
+      />
     </div>
   )
 }
