@@ -36,7 +36,7 @@ export default function SearchBar(props: Props) {
         placeholder="Search..."
         value={localSearchText}
         onInput={handler}
-        className={"placeholder:text-licorice-500 pl-2 w-72 mb-5 "+style.licorice_border}
+        className={"placeholder:text-licorice-500 pl-2 max-w-72 mb-5 "+style.licorice_border}
       />
       <div>
         <CheckInput id_name="only-in-stock" />
