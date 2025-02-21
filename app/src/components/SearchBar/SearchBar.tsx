@@ -4,20 +4,21 @@ import React from 'react'
 import _ from 'lodash'
 import { searchDebounceTime } from '../../utils'
 
+import style from "../../style.ts"
 import CheckInput from '../CheckInput/index'
 
 type Props = {
   searchText: string
   setSearchText: (s: string) => void
   setOnlyInStock: (v: boolean) => void
-}
+} & style.Props
 
 export default function SearchBar(props: Props) {
   const [localSearchText, setLocalSearchText] = useState(props.searchText)
 
   const debouncedSetText = React.useCallback(
-    _.debounce((s: string) => props.setSearchText(s), searchDebounceTime)
-    , [props.setSearchText]
+    _.debounce((s: string) => props.setSearchText(s), searchDebounceTime),
+    [props.setSearchText]
   )
 
   const handler = (e: React.FormEvent<HTMLInputElement>) => {
@@ -27,7 +28,7 @@ export default function SearchBar(props: Props) {
   }
 
   return (
-    <form>
+    <form className={props.className + " align-top"}>
       <input 
         id="product-filter"
         type="search"
@@ -35,6 +36,7 @@ export default function SearchBar(props: Props) {
         placeholder="Search..."
         value={localSearchText}
         onInput={handler}
+        className={"placeholder:text-licorice-500 pl-2 max-w-72 mb-5 "+style.licorice_border}
       />
       <div>
         <CheckInput id_name="only-in-stock" />

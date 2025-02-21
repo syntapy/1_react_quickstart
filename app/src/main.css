@@ -18,14 +18,28 @@
   }
 }
 
+@theme {
+  --color-licorice-500: oklch(18.38% 0.03 318.24);
+  --color-magnolia-500: oklch(97.34% 0.0151 302.56);
+  --color-sgbus-green-500: oklch(79.24% 0.2231 140.62);
+  --color-lemon-lime-500: oklch(95.06% 0.207 116.67);
+  --color-orange-peel-500: oklch(77.21% 0.1727 64.17);
+  --custom-checkmark: '\2714';
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--color-licorice-500);
+  background-color: var(--color-magnolia-500);
+
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: left;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

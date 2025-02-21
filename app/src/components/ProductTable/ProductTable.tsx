@@ -1,31 +1,34 @@
 import { Fragment } from 'react'
+import { ProductData } from "../../data/index"
 import ProductCategoryRow from "../ProductCategoryRow/index"
 import ProductRow from "../ProductRow/index"
-import { ProductData } from "../../data/index"
+
+import type { StyleProps } from "../../style.ts"
+import style from "../../style.ts"
 
 type Props = {
   data: ProductData
-}
+} & StyleProps
 
 export default function ProductTable(props: Props) {
   const categoriesUsed: any = {};
   return (
-    <table>
-      <caption>Products and their prices</caption>
-      <thead className="flex flex-row">
+    <table className={"w-full md:w-1/2 table-fixed " + props.className}>
+      <caption className={"mt-1 mb-1 text-lg md:text-center text-left font-bold"}>Products and their prices</caption>
+      <thead>
         <tr>
-          <th className="grow text-left">Name</th>
-          <th className="grow text-right">Price</th>
+          <th className="text-left">Name</th>
+          <th className="text-center w-[65px]">Price</th>
         </tr>
       </thead>
-      <tbody data-testid="table-body" className="border-collapse flex flex-col">
+      <tbody data-testid="table-body">
         {props.data.items.map(
           (item, index) => {
             if (categoriesUsed.hasOwnProperty(item.category) === false) {
               categoriesUsed[item.category]=null;
               return (
                 <Fragment key={index}>
-                  <ProductCategoryRow name={item.category} />
+                  <ProductCategoryRow className="border-b border-solid border-licorice-500 p-[50px]" name={item.category} />
                   <ProductRow name={item.name} price={item.price} stocked={item.stocked} />
                 </Fragment>
               )

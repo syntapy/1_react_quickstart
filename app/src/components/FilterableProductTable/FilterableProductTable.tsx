@@ -2,10 +2,12 @@ import { useState } from 'react'
 import ProductTable from "../ProductTable/index"
 import SearchBar from "../SearchBar/index"
 
+import style from "../../style.ts"
+
 import { ProductData, _filterProductData } from "../../data/index"
 import getProductData from "../../data/index"
 
-export default function FilterableProductTable() {
+export default function FilterableProductTable(props: style.StyleProps) {
   const [searchText, setSearchText] = useState('')
   const [showOnlyInStock, setShowOnlyInStock] = useState(false)
 
@@ -15,13 +17,20 @@ export default function FilterableProductTable() {
   dataFiltered = _filterProductData(data, searchText)
 
   return (
-    <div>
+    <div 
+      data-testid="filterable-product-table"
+      className={style.licorice_border + " p-8 md:p-16 flex flex-col md:flex-row items-start justify-between gap-8 md:gap-64 " + props.className}
+    >
       <SearchBar
+        className=""
         setSearchText={setSearchText}
         setOnlyInStock={setShowOnlyInStock}
         searchText={searchText}
       />
-      <ProductTable data={dataFiltered}/>
+      <ProductTable
+        className=""
+        data={dataFiltered}
+      />
     </div>
   )
 }
