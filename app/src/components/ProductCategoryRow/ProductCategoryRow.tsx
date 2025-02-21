@@ -8,7 +8,7 @@ type Props =  {
 export default function ProductCategoryRow(props: Props) {
   return (
     <tr className={props.className}>
-      <th className="pb-[1px] pt-2" dataTitle={props.dataTitleName} colSpan={2}>
+      <th className="pb-[1px] pt-[2px] md:pb-[2px] md:pt-[4px]" dataTitle={props.dataTitleName} colSpan={2}>
         {props.name}
       </th>
     </tr>

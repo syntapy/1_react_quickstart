@@ -14,7 +14,7 @@ export default function ProductTable(props: Props) {
   const categoriesUsed: any = {};
   return (
     <table className={"w-full md:w-1/2 table-fixed " + props.className}>
-      <caption className={"text-lg md:text-center text-left font-bold"}>Products and their prices</caption>
+      <caption className={"mt-1 mb-1 text-lg md:text-center text-left font-bold"}>Products and their prices</caption>
       <thead>
         <tr>
           <th className="text-left">Name</th>
