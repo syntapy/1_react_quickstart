@@ -19,7 +19,7 @@ export default function FilterableProductTable(props: style.StyleProps) {
   return (
     <div 
       data-testid="filterable-product-table"
-      className={style.licorice_border + " p-8 lg:p-16 flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-64 " + props.className}
+      className={style.licorice_border + " p-8 md:p-16 flex flex-col md:flex-row items-start justify-between gap-8 md:gap-64 " + props.className}
     >
       <SearchBar
         className=""

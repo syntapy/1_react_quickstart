@@ -13,8 +13,8 @@ type Props = {
 export default function ProductTable(props: Props) {
   const categoriesUsed: any = {};
   return (
-    <table className={"w-full lg:w-1/2 table-fixed " + props.className}>
-      <caption className={"text-lg lg:text-center text-left font-bold"}>Products and their prices</caption>
+    <table className={"w-full md:w-1/2 table-fixed " + props.className}>
+      <caption className={"text-lg md:text-center text-left font-bold"}>Products and their prices</caption>
       <thead>
         <tr>
           <th className="text-left">Name</th>
