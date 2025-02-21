@@ -4,6 +4,7 @@ import ProductCategoryRow from "../ProductCategoryRow/index"
 import ProductRow from "../ProductRow/index"
 
 import type { StyleProps } from "../../style.ts"
+import style from "../../style.ts"
 
 type Props = {
   data: ProductData
@@ -12,8 +13,8 @@ type Props = {
 export default function ProductTable(props: Props) {
   const categoriesUsed: any = {};
   return (
-    <table className={"w-1/2 table-fixed " + props.className}>
-      <caption className={"text-lg font-bold"}>Products and their prices</caption>
+    <table className={"w-full lg:w-1/2 table-fixed " + props.className}>
+      <caption className={"text-lg lg:text-center text-left font-bold"}>Products and their prices</caption>
       <thead>
         <tr>
           <th className="text-left">Name</th>
