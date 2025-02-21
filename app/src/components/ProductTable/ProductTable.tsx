@@ -3,21 +3,21 @@ import { ProductData } from "../../data/index"
 import ProductCategoryRow from "../ProductCategoryRow/index"
 import ProductRow from "../ProductRow/index"
 
-import style from "../../style.ts"
+import type { StyleProps } from "../../style.ts"
 
 type Props = {
   data: ProductData
-} & style.Props
+} & StyleProps
 
 export default function ProductTable(props: Props) {
   const categoriesUsed: any = {};
   return (
-    <table className={"w-full " + props.className}>
-      <caption>Products and their prices</caption>
+    <table className={"w-1/2 table-fixed " + props.className}>
+      <caption className={"text-lg font-bold"}>Products and their prices</caption>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Price</th>
+          <th className="text-left">Name</th>
+          <th className="text-center w-[65px]">Price</th>
         </tr>
       </thead>
       <tbody data-testid="table-body">
@@ -27,7 +27,7 @@ export default function ProductTable(props: Props) {
               categoriesUsed[item.category]=null;
               return (
                 <Fragment key={index}>
-                  <ProductCategoryRow name={item.category} />
+                  <ProductCategoryRow className="border-b border-solid border-licorice-500 p-[50px]" name={item.category} />
                   <ProductRow name={item.name} price={item.price} stocked={item.stocked} />
                 </Fragment>
               )

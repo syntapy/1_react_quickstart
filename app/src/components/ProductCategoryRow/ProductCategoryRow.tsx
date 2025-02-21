@@ -1,11 +1,14 @@
-interface Props {
+import type { StyleProps } from "../../style.ts"
+
+type Props =  {
   name: string
-}
+  dataTitleName: string
+} & StyleProps
 
 export default function ProductCategoryRow(props: Props) {
   return (
-    <tr className="flex flex-row justify-center" >
-      <th colSpan="2">
+    <tr className={props.className}>
+      <th className="pb-1 pt-2" dataTitle={props.dataTitleName} colSpan={2}>
         {props.name}
       </th>
     </tr>
