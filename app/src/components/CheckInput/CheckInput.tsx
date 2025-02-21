@@ -9,7 +9,7 @@ export default function CheckInput(props: Props) {
         id={props.id_name}
         type="checkbox"
         name={props.id_name}
-        className={"appearance-none relative w-5 h-5 border border-2"
+        className={"mr-1 sm:mr-2 appearance-none relative w-5 h-5 border border-2"
           + " border-licorice-500 checked:border-sgbus-green-500"
           + " before:absolute before:hidden checked:before:block"
           + " before:text-12"
