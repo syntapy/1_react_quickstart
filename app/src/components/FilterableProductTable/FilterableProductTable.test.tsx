@@ -4,6 +4,7 @@ import { beforeEach, afterEach, describe, expect, test } from 'vitest'
 import FilterableProductTable from './FilterableProductTable'
 import { searchDebounceTime } from '../../utils'
 
+import style from "../../style.ts"
 import userEvent, { UserEvent } from '@testing-library/user-event'
 
 describe("Number data rows", () => {
@@ -37,7 +38,9 @@ describe("Number data rows", () => {
   })
 
   test('Classname', async () => {
-    const classListExpected: string = " border-lemon-lime-500 border-3 rounded-md"
+    const classListExpected: string = style.licorice_border + " p-8 md:p-16 flex flex-col md:flex-row items-start justify-between gap-8 md:gap-64 undefined"
+
+      " border-licorice-500 border-3 rounded-md"
     const productTable: HTMLElement = await screen.findByTestId("filterable-product-table")
     expect(productTable.classList.toString()).toBe(classListExpected)
   })
