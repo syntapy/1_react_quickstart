@@ -4,7 +4,6 @@ import ProductCategoryRow from "../ProductCategoryRow/index"
 import ProductRow from "../ProductRow/index"
 
 import type { StyleProps } from "../../style.ts"
-import style from "../../style.ts"
 
 type Props = {
   data: ProductData
@@ -28,8 +27,15 @@ export default function ProductTable(props: Props) {
               categoriesUsed[item.category]=null;
               return (
                 <Fragment key={index}>
-                  <ProductCategoryRow className="border-b border-solid border-licorice-500 p-[50px]" name={item.category} />
-                  <ProductRow name={item.name} price={item.price} stocked={item.stocked} />
+                  <ProductCategoryRow
+                    className="border-b border-solid border-licorice-500 p-[50px]"
+                    name={item.category}
+                  />
+                  <ProductRow
+                    name={item.name}
+                    price={item.price}
+                    stocked={item.stocked}
+                  />
                 </Fragment>
               )
             } else 
