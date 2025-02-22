@@ -17,7 +17,6 @@ export default function CheckInput(props: Props) {
           + " before:-translate-x-1/2 before:-translate-y-1/2"
           + " before:content-['✓'] cursor-pointer"
           + " before:text-sgbus-green-500 before:text-bold"
-          + " transition duration-200"
           + " align-top bg-no-repeat bg-center bg-contain"
         }
       />
