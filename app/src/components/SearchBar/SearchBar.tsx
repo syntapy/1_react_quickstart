@@ -5,13 +5,15 @@ import _ from 'lodash'
 import { searchDebounceTime } from '../../utils'
 
 import style from "../../style.ts"
+import type { StyleProps } from "../../style.ts"
+
 import CheckInput from '../CheckInput/index'
 
 type Props = {
   searchText: string
   setSearchText: (s: string) => void
   setOnlyInStock: (v: boolean) => void
-} & style.Props
+} & StyleProps
 
 export default function SearchBar(props: Props) {
   const [localSearchText, setLocalSearchText] = useState(props.searchText)
