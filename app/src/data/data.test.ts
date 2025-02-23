@@ -1,6 +1,7 @@
 import { beforeEach, afterEach, describe, it, expect, test } from 'vitest'
 
-import { ProductData, ProductDataItem, _filterProductData } from "./index"
+import { _filterProductData } from "./index"
+import type { ProducData, ProductDataItem } from "./index"
 import getProductData from "./index"
 
 const data = getProductData()  
