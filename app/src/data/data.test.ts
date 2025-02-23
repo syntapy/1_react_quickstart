@@ -1,6 +1,6 @@
 import { beforeEach, afterEach, describe, it, expect, test } from 'vitest'
 
-import { _filterProductData } from "./index"
+import { _filterProductData, isName, isProductDataItem } from "./index"
 import type { ProductData, ProductDataItem } from "./index"
 import getProductData from "./index"
 
@@ -37,4 +37,34 @@ test('Data filter 2', () => {
 
 test('Data filter 3', () => {
   expect(_filterProductData(data, "Pets")).toStrictEqual(ratFood)
+})
+
+test('Name Type 1', () => {
+  expect(isName("Good")).to.be.equal(true)
+})
+
+test('Name Anti Type 1', () => {
+  expect(isName("b$AAd")).to.be.equal(false)
+})
+
+test('Type Test', () => {
+  const productDataItem = {
+    category: "GoodItem",
+    name: "GoodItemName",
+    price: 666,
+    stocked: true
+  }
+
+  expect(isProductDataItem(productDataItem)).to.be.equal(true)
+})
+
+test('Type Anti-Test', () => {
+  const productDataItem = {
+    category: "b_AAdItem",
+    name: "GoodItemName",
+    price: 666,
+    stocked: true
+  }
+
+  expect(isProductDataItem(productDataItem)).to.be.equal(false)
 })
