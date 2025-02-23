@@ -7,7 +7,7 @@ function assertName(value: string): asserts value is Name {
   }
 }
 
-function isName(value: string): value is Name {
+export function isName(value: string): value is Name {
   try {
     assertName(value)
   } catch(e){
@@ -59,11 +59,17 @@ export type ProductData = {
 
 import jsonData from "./data.json" with { type: 'json' }
 
-function isProductData(data: ProductData): data is ProductData {
-  return Array.isArray(data.items) && data.items.every((item: ProductDataItem) => 
-      isName(item.category) && isName(item.name) &&
-      isPositiveNumber(item.price) &&
-      typeof item.stocked === 'boolean')
+export function isProductDataItem(item: any): boolean {
+  if (isName(item.category) && isName(item.name) && isPositiveNumber(item.price) && typeof item.stocked === "boolean") {
+    return true
+  }
+
+  return false
+}
+
+export function isProductData(data: ProductData): data is ProductData {
+  return Array.isArray(data.items) && 
+    data.items.every((item: ProductDataItem) => isProductDataItem(item))
 }
 
 export function _filterProductData(data: ProductData, filterText: string): ProductData {
