@@ -1,7 +1,7 @@
 type Name = string
 
 function assertName(value: string): asserts value is Name {
-  const nameRegex: RegExpMatchArray = /^[A-Za-z\s]*$/
+  const nameRegex: RegExp = /^[A-Za-z\s]*$/
   if (!nameRegex.test(value)) {
     throw new Error(`"{value}" does not consist of only alphabetical characters or spaces`)
   }
