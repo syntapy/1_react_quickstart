@@ -1,6 +1,6 @@
 import { beforeEach, afterEach, describe, it, expect, test } from 'vitest'
 
-import { _filterProductData, isName, isProductDataItem } from "./index"
+import { _filterProductData, isName, isPositiveNumber, isProductDataItem } from "./index"
 import type { ProductData, ProductDataItem } from "./index"
 import getProductData from "./index"
 
@@ -58,7 +58,7 @@ test('Type Test', () => {
   expect(isProductDataItem(productDataItem)).to.be.equal(true)
 })
 
-test('Type Anti-Test', () => {
+test('Type Anti-Test 2', () => {
   const productDataItem = {
     category: "b_AAdItem",
     name: "GoodItemName",
@@ -67,4 +67,16 @@ test('Type Anti-Test', () => {
   }
 
   expect(isProductDataItem(productDataItem)).to.be.equal(false)
+})
+
+test('Type Anti Test 3', () => {
+  expect(isPositiveNumber(0)).to.be.false
+})
+
+test('Type Test 4', () => {
+  expect(isPositiveNumber(666)).to.be.true
+})
+
+test('Type Anti Test 5', () => {
+  expect(isPositiveNumber(666)).to.be.true
 })

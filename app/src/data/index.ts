@@ -30,7 +30,7 @@ function assertPositiveNumber(value: number): asserts value is PositiveNumber {
   }
 }
 
-function isPositiveNumber(value: number):value is PositiveNumber {
+export function isPositiveNumber(value: number):value is PositiveNumber {
   try {
     assertPositiveNumber(value)
   } catch(e){
