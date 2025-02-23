@@ -3,13 +3,14 @@ import ProductTable from "../ProductTable/index"
 import SearchBar from "../SearchBar/index"
 
 import style from "../../style.ts"
+import type { StyleProps } from "../../style.ts"
 
 import { ProductData, _filterProductData } from "../../data/index"
 import getProductData from "../../data/index"
 
-export default function FilterableProductTable(props: style.StyleProps) {
+export default function FilterableProductTable(props: StyleProps) {
   const [searchText, setSearchText] = useState('')
-  const [showOnlyInStock, setShowOnlyInStock] = useState(false)
+  const [_, setShowOnlyInStock] = useState(false)
 
   const data: ProductData = getProductData()
   let dataFiltered: ProductData = {items: []}

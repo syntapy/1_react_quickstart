@@ -1,18 +1,48 @@
 type Name = string
 
 function assertName(value: string): asserts value is Name {
-  const nameRegex: RegExpMatchArray = /^[A-Za-z\s]*$/
+  const nameRegex: RegExp = /^[A-Za-z\s]*$/
   if (!nameRegex.test(value)) {
     throw new Error(`"{value}" does not consist of only alphabetical characters or spaces`)
   }
 }
 
-type PositiveNumber = number
+export function isName(value: string): value is Name {
+  try {
+    assertName(value)
+  } catch(e){
+    return false
+  }
+
+  return true
+}
+
+export function newName(value: string): Name {
+  assertName(value)
+  return value as Name
+}
+
+export type PositiveNumber = number
 
 function assertPositiveNumber(value: number): asserts value is PositiveNumber {
   if (value <= 0) {
     throw new Error(`"{value}" is not positive non-zero`)
   }
+}
+
+export function isPositiveNumber(value: number):value is PositiveNumber {
+  try {
+    assertPositiveNumber(value)
+  } catch(e){
+    return false
+  }
+
+  return true
+}
+
+export function newPositiveNumber(value: number): PositiveNumber {
+  assertPositiveNumber(value)
+  return value as PositiveNumber
 }
 
 export type ProductDataItem = {
@@ -29,12 +59,17 @@ export type ProductData = {
 
 import jsonData from "./data.json" with { type: 'json' }
 
-function isProductData(data: ProductData): data is ProductData {
-  return Array.isArray(data.items) && data.items.every((item: ProductDataItem) => 
-      typeof item.category === 'string' &&
-      typeof item.name === 'string' &&
-      typeof item.price === 'number' &&
-      typeof item.stocked === 'boolean')
+export function isProductDataItem(item: any): boolean {
+  if (isName(item.category) && isName(item.name) && isPositiveNumber(item.price) && typeof item.stocked === "boolean") {
+    return true
+  }
+
+  return false
+}
+
+export function isProductData(data: ProductData): data is ProductData {
+  return Array.isArray(data.items) && 
+    data.items.every((item: ProductDataItem) => isProductDataItem(item))
 }
 
 export function _filterProductData(data: ProductData, filterText: string): ProductData {
