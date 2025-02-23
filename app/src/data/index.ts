@@ -17,7 +17,7 @@ function isName(value: string): value is Name {
   return true
 }
 
-function newName(value: string): Name {
+export function newName(value: string): Name {
   assertName(value)
   return value as Name
 }
