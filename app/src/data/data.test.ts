@@ -1,6 +1,7 @@
 import { beforeEach, afterEach, describe, it, expect, test } from 'vitest'
 
-import { ProductData, ProductDataItem, _filterProductData } from "./index"
+import { _filterProductData, isName, isPositiveNumber, isProductDataItem } from "./index"
+import type { ProductData, ProductDataItem } from "./index"
 import getProductData from "./index"
 
 const data = getProductData()  
@@ -36,4 +37,46 @@ test('Data filter 2', () => {
 
 test('Data filter 3', () => {
   expect(_filterProductData(data, "Pets")).toStrictEqual(ratFood)
+})
+
+test('Name Type 1', () => {
+  expect(isName("Good")).to.be.equal(true)
+})
+
+test('Name Anti Type 1', () => {
+  expect(isName("b$AAd")).to.be.equal(false)
+})
+
+test('Type Test', () => {
+  const productDataItem = {
+    category: "GoodItem",
+    name: "GoodItemName",
+    price: 666,
+    stocked: true
+  }
+
+  expect(isProductDataItem(productDataItem)).to.be.equal(true)
+})
+
+test('Type Anti-Test 2', () => {
+  const productDataItem = {
+    category: "b_AAdItem",
+    name: "GoodItemName",
+    price: 666,
+    stocked: true
+  }
+
+  expect(isProductDataItem(productDataItem)).to.be.equal(false)
+})
+
+test('Type Anti Test 3', () => {
+  expect(isPositiveNumber(0)).to.be.false
+})
+
+test('Type Test 4', () => {
+  expect(isPositiveNumber(666)).to.be.true
+})
+
+test('Type Anti Test 5', () => {
+  expect(isPositiveNumber(666)).to.be.true
 })
