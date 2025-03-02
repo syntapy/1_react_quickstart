@@ -8,7 +8,8 @@ const config = defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-  ]
+  ],
+  base: '/1-react-quickstart/',
 })
 
 const vitestConfig = defineTestConfig({
