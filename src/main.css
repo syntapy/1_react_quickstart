@@ -8,19 +8,10 @@
   If we ever want to remove these styles, we need to add an explicit border
   color utility to any element that depends on these defaults.
 */
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-}
 
 @theme {
-  --color-licorice-500: oklch(18.38% 0.03 318.24);
-  --color-magnolia-500: oklch(97.34% 0.0151 302.56);
+  --color-licorice-500: oklch(8.38% 0.03 318.24);
+  --color-magnolia-500: oklch(98.78% 0.0151 302.56);
   --color-sgbus-green-500: oklch(79.24% 0.2231 140.62);
   --color-lemon-lime-500: oklch(95.06% 0.207 116.67);
   --color-orange-peel-500: oklch(77.21% 0.1727 64.17);
@@ -45,4 +36,21 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  input:focus {
+    outline-style: solid;
+    outline-width: 2px;
+    outline-color: var(--color-lemon-lime-500);
+    outline-offset: 1px;
+  }
 }
