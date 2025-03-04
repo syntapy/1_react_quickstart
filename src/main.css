@@ -49,8 +49,8 @@
 
   input:focus {
     outline-style: solid;
-    outline-width: 1px;
-    outline-color: var(--color-orange-peel-500);
-    outline-offset: 2px;
+    outline-width: 2px;
+    outline-color: var(--color-lemon-lime-500);
+    outline-offset: 1px;
   }
 }
