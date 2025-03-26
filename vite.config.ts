@@ -9,7 +9,7 @@ const config = defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/1-react-quickstart/',
+  base: '/1_react_quickstart/',
 })
 
 const vitestConfig = defineTestConfig({
